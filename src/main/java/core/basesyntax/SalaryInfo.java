@@ -15,7 +15,8 @@ public class SalaryInfo {
                                 String dateFrom,
                                 String dateTo) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Report for period ").append(dateFrom).append(" - ").append(dateTo).append(System.lineSeparator());
+        builder.append("Report for period ").append(dateFrom).append(" - ").append(dateTo)
+                .append(System.lineSeparator());
         LocalDate from = LocalDate.parse(dateFrom, formatter);
         LocalDate to = LocalDate.parse(dateTo, formatter);
 
@@ -28,11 +29,11 @@ public class SalaryInfo {
                 if (recordData[NAME_INDEX].equals(name)
                         && (recordDate.isAfter(from) || recordDate.isEqual(from))
                         && (recordDate.isBefore(to) || recordDate.isEqual(to))) {
-                    salary += Integer.parseInt(recordData[HOURS_INDEX]) * Integer.parseInt(recordData[SALARY_INDEX]);
+                    salary += Integer.parseInt(recordData[HOURS_INDEX])
+                            * Integer.parseInt(recordData[SALARY_INDEX]);
                 }
             }
             builder.append(salary).append(System.lineSeparator());
-
         }
         return builder.toString();
     }
