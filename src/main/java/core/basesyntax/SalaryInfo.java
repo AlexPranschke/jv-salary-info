@@ -15,13 +15,12 @@ public class SalaryInfo {
                                 String dateFrom,
                                 String dateTo) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Report for period ").append(dateFrom).append(" - ").append(dateTo)
-                .append(System.lineSeparator());
+        builder.append("Report for period ").append(dateFrom).append(" - ").append(dateTo);
         LocalDate from = LocalDate.parse(dateFrom, formatter);
         LocalDate to = LocalDate.parse(dateTo, formatter);
 
         for (String name : names) {
-            builder.append(name).append(" - ");
+            builder.append(System.lineSeparator()).append(name).append(" - ");
             int salary = 0;
             for (String record : data) {
                 String[] recordData = record.split(" ");
@@ -33,7 +32,7 @@ public class SalaryInfo {
                             * Integer.parseInt(recordData[SALARY_INDEX]);
                 }
             }
-            builder.append(salary).append(System.lineSeparator());
+            builder.append(salary);
         }
         return builder.toString();
     }
